@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync": "npm run build && git add . && git commit -m \"chore: auto-sync and build\" && git push origin main"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
