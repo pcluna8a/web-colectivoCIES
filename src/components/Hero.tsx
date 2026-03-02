@@ -50,7 +50,9 @@ export function Hero() {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative pt-40 pb-20 px-6 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <section ref={containerRef} className="relative pt-40 pb-20 px-6 min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cies-pearl">
+            {/* Noise Texture */}
+            <div className="absolute inset-0 bg-noise pointer-events-none z-0" />
 
             {/* Background Decor */}
             <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cies-mustard/20 rounded-full blur-[120px] -z-10" />
@@ -58,10 +60,10 @@ export function Hero() {
 
             {/* Copy */}
             <div className="max-w-4xl mx-auto text-center space-y-8 z-10">
-                <h1 ref={headlineRef} className="text-5xl md:text-7xl font-black text-cies-charcoal leading-[1.1] tracking-tighter">
+                <h1 ref={headlineRef} className="text-5xl md:text-[5.5rem] font-black text-black leading-[0.95] tracking-[-0.03em]">
                     <span className="block">Estamos transformando</span>
                     <span className="block text-cies-desert">la innovación y la tecnología,</span>
-                    <span className="block text-drama text-4xl md:text-6xl mt-2 text-cies-deepBlue">en narrativas visuales inspiradoras.</span>
+                    <span className="block text-drama text-4xl md:text-[4.5rem] mt-4 text-cies-deepBlue tracking-normal">en narrativas visuales inspiradoras.</span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-cies-charcoal/80 max-w-2xl mx-auto font-medium">
@@ -77,45 +79,78 @@ export function Hero() {
             {/* 3D Mockup Container */}
             <div
                 ref={mockupRef}
-                className="mt-20 w-full max-w-5xl aspect-[16/9] glass-dark p-2 relative overflow-hidden group perspective-1000"
+                className="mt-24 w-full max-w-5xl aspect-[16/9] glass-dark p-2 relative overflow-hidden group perspective-1000 z-10"
                 style={{ transformStyle: 'preserve-3d' }}
             >
-                <div className="absolute inset-0 bg-gradient-to-tr from-cies-deepBlue/40 to-cies-cyan/20 pointer-events-none rounded-xl" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-cies-deepBlue/10 to-transparent pointer-events-none rounded-xl" />
 
                 {/* Fake Browser Header */}
-                <div className="h-8 border-b border-white/10 flex items-center px-4 gap-2 bg-cies-charcoal/50 rounded-t-xl">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-cies-mustard" />
-                    <div className="w-3 h-3 rounded-full bg-cies-desert" />
-                    <div className="mx-auto text-xs text-cies-pearl/60 font-mono tracking-widest">dashboard.colectivocies.com</div>
+                <div className="h-10 border-b border-white/10 flex items-center px-4 gap-2 bg-black rounded-t-xl">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-cies-mustard/80" />
+                    <div className="w-3 h-3 rounded-full bg-cies-desert/80" />
+                    <div className="mx-auto text-xs text-cies-pearl/40 font-mono tracking-[0.2em] font-bold">DASHBOARD.COLECTIVOCIES.COM</div>
                 </div>
 
                 {/* Dashboard Mockup Picture */}
-                <div className="w-full h-[calc(100%-2rem)] bg-cies-charcoal relative rounded-b-xl overflow-hidden">
-                    {/* Instead of a static image, let's create a brutalist data layout */}
-                    <div className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-2 p-4">
-                        <div className="col-span-3 row-span-6 bg-white/5 rounded-lg border border-white/10 p-4 space-y-4">
-                            <div className="h-6 w-24 bg-cies-cyan/20 rounded animate-pulse" />
-                            <div className="h-4 w-full bg-white/5 rounded" />
-                            <div className="h-4 w-3/4 bg-white/5 rounded" />
-                            <div className="h-4 w-5/6 bg-white/5 rounded" />
+                <div className="w-full h-[calc(100%-2.5rem)] bg-black relative rounded-b-xl overflow-hidden border-t border-white/5">
+                    {/* Brutalist Data Layout */}
+                    <div className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-3 p-4">
+
+                        {/* Sidebar */}
+                        <div className="col-span-3 row-span-6 bg-[#0a0a0a] rounded-lg border border-white/10 p-5 space-y-6 flex flex-col">
+                            <div className="h-6 w-24 bg-cies-cyan/90 rounded-sm animate-pulse" />
+                            <div className="space-y-3 flex-1">
+                                {[1, 2, 3, 4, 5].map((i) => (
+                                    <div key={i} className="flex items-center gap-3 group/item">
+                                        <div className="w-2 h-2 rounded-full bg-white/20 group-hover/item:bg-cies-mustard transition-colors" />
+                                        <div className="h-3 w-full bg-white/10 rounded-sm group-hover/item:bg-white/30 transition-colors" />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="h-12 w-full border border-cies-mustard/20 bg-cies-mustard/5 rounded-md flex items-center justify-center text-cies-mustard text-xs font-mono font-bold tracking-widest mt-auto">
+                                ALL SYSTEMS GO
+                            </div>
                         </div>
-                        <div className="col-span-9 row-span-2 bg-white/5 rounded-lg border border-white/10 flex items-end p-4">
-                            <div className="h-full w-full flex items-end justify-between gap-2">
-                                {[40, 70, 45, 90, 65, 80, 55, 100].map((h, i) => (
-                                    <div key={i} className="w-full bg-cies-desert/80 rounded-t-sm transition-all duration-500 hover:bg-cies-mustard" style={{ height: `${h}%` }} />
+
+                        {/* Main Chart */}
+                        <div className="col-span-9 row-span-4 bg-[#0a0a0a] rounded-lg border border-white/10 flex flex-col p-5 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4">
+                                <div className="text-right">
+                                    <div className="text-cies-pearl/50 font-mono text-xs uppercase tracking-wider mb-1">Impacto Multimedia</div>
+                                    <div className="text-4xl font-black text-white font-grotesk">1,204.89</div>
+                                </div>
+                            </div>
+                            <div className="h-full w-full flex items-end justify-between gap-3 pt-12">
+                                {[40, 70, 45, 90, 65, 80, 55, 100, 30, 85, 60, 95].map((h, i) => (
+                                    <div key={i} className="w-full relative group/bar h-full flex items-end">
+                                        <div
+                                            className="w-full bg-cies-desert transition-all duration-700 hover:bg-cies-mustard relative"
+                                            style={{ height: `${h}%` }}
+                                        >
+                                            <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-mono opacity-0 group-hover/bar:opacity-100 text-cies-mustard transition-opacity whitespace-nowrap">
+                                                +{h}%
+                                            </div>
+                                        </div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
-                        <div className="col-span-6 row-span-4 bg-white/5 rounded-lg border border-white/10 p-4">
-                            <div className="w-full h-full border border-cies-mustard/30 rounded-full flex items-center justify-center relative">
-                                <div className="absolute inset-4 border border-cies-cyan/30 rounded-full" />
-                                <span className="text-cies-pearl font-mono text-2xl font-bold">87%</span>
+
+                        {/* Bottom Stats */}
+                        <div className="col-span-5 row-span-2 bg-cies-cyan/10 rounded-lg border border-cies-cyan/20 p-5 flex items-center justify-between group-hover:bg-cies-cyan/20 transition-colors">
+                            <div className="space-y-1">
+                                <span className="text-cies-pearl/60 text-xs font-mono uppercase tracking-wider">Carga Servidor</span>
+                                <div className="text-white font-bold font-grotesk text-3xl">Pizarra #2A2A</div>
                             </div>
+                            <div className="w-16 h-16 border-4 border-cies-cyan/30 rounded-full border-t-cies-cyan animate-spin" />
                         </div>
-                        <div className="col-span-3 row-span-4 bg-cies-deepBlue/50 rounded-lg border border-cies-cyan/20 p-4 flex flex-col justify-between group-hover:bg-cies-cyan/10 transition-colors">
-                            <span className="text-cies-pearl/60 text-sm">System Status</span>
-                            <span className="text-cies-mustard font-bold font-grotesk text-3xl">Optimal</span>
+
+                        <div className="col-span-4 row-span-2 bg-[#0a0a0a] rounded-lg border border-white/10 p-5">
+                            <div className="w-full h-full border border-cies-mustard/20 rounded-lg flex flex-col items-center justify-center relative bg-cies-mustard/5">
+                                <span className="text-cies-mustard/60 text-xs font-mono uppercase tracking-widest mb-1">Precisión Cruda</span>
+                                <span className="text-cies-mustard font-mono text-3xl font-bold">100%</span>
+                            </div>
                         </div>
                     </div>
                 </div>

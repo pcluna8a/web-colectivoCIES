@@ -25,12 +25,14 @@ export function CtaFooter() {
     }, []);
 
     return (
-        <footer ref={containerRef} className="pt-24 bg-cies-pearl flex flex-col items-center border-t border-cies-charcoal/10">
+        <footer ref={containerRef} className="pt-32 bg-cies-pearl flex flex-col items-center border-t-2 border-cies-charcoal relative">
+            {/* Noise Texture */}
+            <div className="absolute inset-0 bg-noise pointer-events-none z-0" />
 
             {/* Massive CTA Card */}
-            <div className="cta-content w-full max-w-5xl px-6 mb-24 relative z-10">
-                <div className="bg-cies-charcoal rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden group shadow-2xl">
-                    <div className="absolute inset-0 bg-cies-mustard mix-blend-overlay opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
+            <div className="cta-content w-full max-w-6xl px-6 mb-32 relative z-10">
+                <div className="bg-black rounded-none border border-white/20 p-16 md:p-24 text-center relative overflow-hidden group shadow-2xl">
+                    <div className="absolute inset-0 bg-cies-mustard mix-blend-overlay opacity-5 group-hover:opacity-15 transition-opacity duration-700" />
 
                     <h2 className="text-4xl md:text-6xl font-black text-cies-pearl mb-6">
                         Conoce nuestra Oferta Educativa
@@ -51,7 +53,7 @@ export function CtaFooter() {
             </div>
 
             {/* Actual Footer Base */}
-            <div className="w-full bg-cies-charcoal text-cies-pearl/60 py-12 px-6 border-t border-white/5">
+            <div className="w-full bg-black text-cies-pearl/60 py-16 px-6 border-t border-cies-charcoal relative z-10">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
 
                     <div className="md:col-span-2 space-y-4">

@@ -28,7 +28,9 @@ export function SocialProof() {
     }, []);
 
     return (
-        <section className="py-12 border-y border-cies-charcoal/10 bg-white/30 overflow-hidden">
+        <section className="py-16 border-y-2 border-cies-charcoal/20 bg-white overflow-hidden relative">
+            {/* Noise Texture */}
+            <div className="absolute inset-0 bg-noise pointer-events-none z-0" />
             <div className="max-w-7xl mx-auto px-6 mb-6">
                 <p className="text-center text-sm font-bold text-cies-charcoal/50 uppercase tracking-widest">
                     Con el respaldo de las mejores áreas de formación
@@ -37,8 +39,8 @@ export function SocialProof() {
 
             <div className="relative flex whitespace-nowrap overflow-hidden">
                 {/* Gradient Masks */}
-                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-cies-pearl to-transparent z-10" />
-                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-cies-pearl to-transparent z-10" />
+                <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-white to-transparent z-10" />
+                <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-white to-transparent z-10" />
 
                 <div ref={marqueeRef} className="flex gap-16 items-center w-full min-w-max">
                     {/* Double array to prevent sudden jump during looping */}

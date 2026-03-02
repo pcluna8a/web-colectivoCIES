@@ -14,6 +14,7 @@ const FEATURES = [
         icon: HelpCircle,
         color: 'text-cies-mustard',
         bg: 'bg-cies-mustard/10',
+        glow: 'hover:shadow-[0_0_40px_rgba(233,196,106,0.3)]',
         colSpan: 'md:col-span-2'
     },
     {
@@ -23,6 +24,7 @@ const FEATURES = [
         icon: Users,
         color: 'text-cies-cyan',
         bg: 'bg-cies-cyan/10',
+        glow: 'hover:shadow-[0_0_40px_rgba(110,198,216,0.3)]',
         colSpan: 'md:col-span-1'
     },
     {
@@ -32,6 +34,7 @@ const FEATURES = [
         icon: MapPin,
         color: 'text-cies-desert',
         bg: 'bg-cies-desert/10',
+        glow: 'hover:shadow-[0_0_40px_rgba(42,157,143,0.3)]',
         colSpan: 'md:col-span-1'
     },
     {
@@ -42,6 +45,7 @@ const FEATURES = [
         color: 'text-[white]', // Will override below safely via tailwind context
         customColor: '#E9C46A',
         bg: 'bg-white/5',
+        glow: 'hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]',
         colSpan: 'md:col-span-2'
     },
     {
@@ -51,6 +55,7 @@ const FEATURES = [
         icon: Lightbulb,
         color: 'text-cies-mustard',
         bg: 'bg-cies-mustard/10',
+        glow: 'hover:shadow-[0_0_40px_rgba(233,196,106,0.3)]',
         colSpan: 'md:col-span-2'
     },
     {
@@ -60,6 +65,7 @@ const FEATURES = [
         icon: Workflow,
         color: 'text-cies-cyan',
         bg: 'bg-cies-cyan/10',
+        glow: 'hover:shadow-[0_0_40px_rgba(110,198,216,0.3)]',
         colSpan: 'md:col-span-1'
     }
 ];
@@ -88,13 +94,14 @@ export function Features() {
     }, []);
 
     return (
-        <section id="innovacion" className="py-24 px-6 relative bg-white">
-            <div className="max-w-7xl mx-auto">
-                <div className="mb-16 md:w-2/3">
-                    <h2 className="text-4xl md:text-5xl font-black mb-4">
-                        ¿Cómo narramos <span className="text-drama text-5xl md:text-6xl text-cies-desert ml-2">nuestra historia?</span>
+        <section id="innovacion" className="py-32 px-6 relative bg-white">
+            <div className="absolute inset-0 bg-noise pointer-events-none z-0" />
+            <div className="max-w-7xl mx-auto relative z-10">
+                <div className="mb-20 md:w-2/3">
+                    <h2 className="text-5xl md:text-[4rem] font-black mb-6 leading-none tracking-tight">
+                        ¿Cómo narramos <span className="text-drama text-6xl md:text-[5rem] text-cies-desert ml-2 tracking-normal">nuestra historia?</span>
                     </h2>
-                    <p className="text-xl text-cies-charcoal/70">
+                    <p className="text-xl md:text-2xl text-cies-charcoal/80 font-medium max-w-2xl">
                         A través de 6 pilares comunicativos construimos el pulso audiovisual del Centro de la Industria, la Empresa y los Servicios.
                     </p>
                 </div>
@@ -104,11 +111,12 @@ export function Features() {
                         <div
                             key={i}
                             className={cn(
-                                "feature-card group relative p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between overflow-hidden",
-                                "hover:-translate-y-1 bg-white hover:shadow-xl",
-                                feature.colSpan
+                                "feature-card group relative p-8 rounded-none border border-cies-charcoal flex flex-col justify-between overflow-hidden",
+                                "transition-all duration-500 hover:-translate-y-2 bg-white",
+                                feature.colSpan,
+                                feature.glow
                             )}
-                            style={feature.title === 'El Momento' ? { backgroundColor: '#264653', color: '#EDECEC', border: 'none' } : { borderColor: 'rgba(72,71,71,0.1)' }}
+                            style={feature.title === 'El Momento' ? { backgroundColor: '#1A1A1A', color: '#EDECEC', borderColor: '#1A1A1A' } : {}}
                         >
 
                             <div className="flex justify-between items-start z-10 relative">
@@ -120,8 +128,8 @@ export function Features() {
                                 </div>
                             </div>
 
-                            <div className="z-10 relative">
-                                <h3 className={cn("text-2xl font-bold mb-2", feature.title === 'El Momento' ? 'text-white' : 'text-cies-deepBlue')}>
+                            <div className="z-10 relative mt-16">
+                                <h3 className={cn("text-3xl font-black mb-3 tracking-tight", feature.title === 'El Momento' ? 'text-white' : 'text-cies-deepBlue')}>
                                     {feature.title}
                                 </h3>
                                 <p className={cn("font-medium", feature.title === 'El Momento' ? 'text-white/70' : 'text-cies-charcoal/70')}>

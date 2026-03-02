@@ -49,19 +49,21 @@ export function IntegrationEngine() {
     }, []);
 
     return (
-        <section id="nosotros" ref={containerRef} className="py-24 bg-cies-charcoal text-cies-pearl relative overflow-hidden">
+        <section id="nosotros" ref={containerRef} className="py-40 bg-black text-cies-pearl relative overflow-hidden">
+            {/* Noise Texture */}
+            <div className="absolute inset-0 bg-noise pointer-events-none z-0" />
 
             {/* Absolute brutalism grid background */}
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#EDECEC 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+            <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(rgba(237,236,236,0.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
                 <div className="relative z-10">
-                    <div className="font-mono text-cies-cyan text-sm font-bold tracking-widest mb-4 uppercase">Ecosistema Colaborativo</div>
-                    <h2 className="text-4xl md:text-5xl font-black mb-6 text-white leading-tight">
-                        Nuestra pasión en <span className="text-drama text-cies-mustard">movimiento</span>
+                    <div className="font-mono text-cies-cyan text-sm font-bold tracking-widest mb-6 uppercase border-l-2 border-cies-cyan pl-3">Ecosistema Colaborativo</div>
+                    <h2 className="text-5xl md:text-7xl font-black mb-8 text-white leading-[0.9] tracking-tighter">
+                        Nuestra pasión en <span className="text-drama text-cies-mustard tracking-normal whitespace-nowrap">movimiento</span>
                     </h2>
-                    <p className="text-lg text-cies-pearl/80 mb-8 max-w-xl leading-relaxed">
+                    <p className="text-xl md:text-2xl font-medium text-cies-pearl/60 mb-10 max-w-xl leading-relaxed">
                         Como un vehículo que nunca se detiene, unimos a Aprendices e Instructores del MediaLab para generar ideas, producir contenidos y dejar huella dentro del SENA Regional Huila.
                     </p>
                     <ul className="space-y-4 font-mono text-sm text-cies-pearl/70">
@@ -72,20 +74,20 @@ export function IntegrationEngine() {
                 </div>
 
                 {/* Visual Engine Map */}
-                <div className="relative h-[400px] bg-white/5 border border-white/10 rounded-2xl glass-dark">
+                <div className="relative h-[500px] bg-[#0a0a0a] border-2 border-white/5 rounded-none glass-dark">
                     <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
                         {/* Connecting lines drawn via GSAP */}
-                        <path className="engine-path" d="M 20% 10% L 40% 50% L 70% 20% L 80% 60%" fill="none" stroke="rgba(110, 198, 216, 0.4)" strokeWidth="2" strokeDasharray="5,5" />
+                        <path className="engine-path" d="M 20% 10% L 40% 50% L 70% 20% L 80% 60%" fill="none" stroke="rgba(110, 198, 216, 0.8)" strokeWidth="3" strokeDasharray="8,8" filter="drop-shadow(0 0 8px rgba(110,198,216,0.5))" />
                     </svg>
 
                     {NODES.map((node, i) => (
                         <div
                             key={i}
-                            className="engine-node absolute -translate-x-1/2 -translate-y-1/2 bg-cies-deepBlue border border-cies-desert rounded-xl p-4 flex flex-col items-center justify-center gap-2 group"
+                            className="engine-node absolute -translate-x-1/2 -translate-y-1/2 bg-black border border-cies-desert/50 rounded-none p-5 flex flex-col items-center justify-center gap-3 group"
                             style={{ top: node.top, left: node.left }}
                         >
-                            <node.icon className="w-6 h-6 text-cies-mustard transition-transform group-hover:scale-110" />
-                            <span className="font-mono text-[10px] font-bold uppercase">{node.label}</span>
+                            <node.icon className="w-8 h-8 text-cies-mustard transition-transform group-hover:scale-110" />
+                            <span className="font-mono text-[11px] text-cies-pearl/70 font-bold uppercase tracking-widest">{node.label}</span>
                         </div>
                     ))}
                 </div>
